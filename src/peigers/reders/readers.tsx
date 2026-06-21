@@ -2,6 +2,7 @@ import Footer from "../../companents/common/footer"
 import Header from "../../companents/common/header"
 import ReaderList from "../../companents/Readers/readersList"
 import './readers.css'
+import { mockReaders } from "../../mocks/readers"
 const Readerspage = () =>{
     return(
           <div className="page-wrapper">
@@ -15,7 +16,7 @@ const Readerspage = () =>{
           Всего читателей: <strong>5</strong>
         </p>
 {/*  <!-- Reader List --> */}
-        <ReaderList/>
+        <ReaderList readers={mockReaders}/>
       </div>
     </main>
 

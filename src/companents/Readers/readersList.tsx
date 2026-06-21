@@ -1,13 +1,21 @@
 import ReadersItem from "./readersItem"
+import '../../style/profile.css'
+import type { IReader } from "../../types/reader.types"
 
-const ReaderList = () => {
-    return(
+interface ReadersListProps {
+    readers: IReader[];
+}
+
+const ReaderList = ({ readers }: ReadersListProps) => {
+    if (readers.length === 0) {
+        return <p>Нет читателей</p>;
+    }
+    return (
         <div className="reader-list">
-            <ReadersItem/>
-            <ReadersItem/>
-            <ReadersItem/>
-            <ReadersItem/>
-            <ReadersItem/>
+            {readers.map((reader: IReader) => (
+                <ReadersItem key={reader.id} reader={reader} />
+            ))}
+            {/* <ReadersItem />*/}
         </div>
     )
 }
