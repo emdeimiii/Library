@@ -1,5 +1,6 @@
 import ReadersItem from "./readersItem"
-import '../../style/profile.css'
+
+
 import type { IReader } from "../../types/reader.types"
 
 interface ReadersListProps {

@@ -2,6 +2,9 @@ import BookList from "../../companents/books/bookList"
 import Footer from "../../companents/common/footer"
 import Header from "../../companents/common/header"
 import './books.css'
+
+import { mockBooks } from "../../mocks/book"
+
 const BookPage = () =>{
     return(
           <div className="page-wrapper">
@@ -27,7 +30,7 @@ const BookPage = () =>{
           </div>
           <span className="search-result-count">Найдено: 10</span>
         </div>
-        <BookList/>
+        <BookList books ={mockBooks}/>
       </div>
     </main>
 
