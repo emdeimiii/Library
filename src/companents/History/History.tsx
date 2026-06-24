@@ -16,7 +16,7 @@ const HistorySection= ({history}: HistoryProps) =>{
                     })
                     const title = findBook ? findBook.title : ''
                     return(
-                        <div className="history-item">
+                        <div className="history-item" key={book.bookId}>
                 <span className="history-book">{title}</span>
                 <span className="history-date">
                   Взята: {book.takenAt.toLocaleDateString('ru-Ru')}, {returnedAt}

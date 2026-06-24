@@ -1,9 +1,12 @@
 import type { IReader } from "../../types/reader.types"
+import { Link} from "react-router-dom";
+
+import { mockReaders } from "../../mocks/readers"; 
 
 interface ReaderCardProps {
   reader: IReader;
 }
-const ReadersItem = ({ reader }: any) =>{
+const ReadersItem = ({ reader }: ReaderCardProps) =>{
     return(
         <div className="reader-card">
             <div className="reader-avatar">
@@ -17,9 +20,9 @@ const ReadersItem = ({ reader }: any) =>{
                   📚 Активных книг: <strong>{reader.activeBooks}</strong>
                 </span>
               </div>
-              <a href="reader-profile.html?id=r1" className="btn btn-primary">
+              <Link to={`/readers/${reader.id}`} className="btn btn-primary">
                 Профиль
-              </a>
+              </Link>
             </div>
           </div>
     )
