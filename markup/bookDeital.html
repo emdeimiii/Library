@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Мастер и Маргарита - Библиотека</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- Header -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <a href="index.html" class="logo">
+            <span class="logo-icon">📚</span>
+            <span>Библиотека</span>
+          </a>
+          <nav class="nav">
+            <a href="index.html" class="active">
+              <span>📖</span>
+              <span>Книги</span>
+              <span class="nav-badge">10</span>
+            </a>
+            <a href="readers.html">
+              <span>👤</span>
+              <span>Читатели</span>
+              <span class="nav-badge">5</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="container">
+        <div class="book-detail-wrapper">
+          <!-- Back Button -->
+          <a href="index.html" class="back-link">
+            ← Назад к каталогу
+          </a>
+
+          <!-- Book Detail Card -->
+          <div class="book-detail-card">
+            <div class="book-detail-layout">
+              <!-- Book Cover -->
+              <div class="book-detail-cover">
+                <div class="book-cover-placeholder">
+                  <span class="book-cover-emoji">📖</span>
+                </div>
+                <span class="badge badge-unavailable">Выдана</span>
+              </div>
+
+              <!-- Book Info -->
+              <div class="book-detail-info">
+                <h1 class="book-detail-title">Мастер и Маргарита</h1>
+                <p class="book-detail-author">Михаил Булгаков</p>
+
+                <div class="book-detail-meta">
+                  <span class="book-detail-meta-item">
+                    <span class="meta-label">Год:</span>
+                    <span class="meta-value">1967</span>
+                  </span>
+                  <span class="book-detail-meta-item">
+                    <span class="meta-label">Жанр:</span>
+                    <span class="meta-value">Роман</span>
+                  </span>
+                </div>
+
+                <div class="book-detail-description">
+                  <h3>Описание</h3>
+                  <p>
+                    Мистический роман о дьяволе, посетившем Москву в 1930-х годах. 
+                    Произведение сочетает в себе философские размышления о добре и зле, 
+                    любви и трусости, творчестве и власти. Роман стал одним из главных 
+                    произведений русской литературы XX века.
+                  </p>
+                </div>
+
+                <div class="book-detail-actions">
+                  <button class="btn btn-primary btn-large" disabled>
+                    Книга выдана
+                  </button>
+                  <button class="btn btn-outline btn-large">
+                    Добавить в избранное
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Additional Info -->
+
+            <div class="book-detail-section">
+              <h3 class="section-title">Статус выдачи</h3>
+              <div class="status-info">
+                <div class="status-item">
+                  <span class="status-label">Текущий читатель:</span>
+                  <a href="reader-profile.html?id=r1" class="status-link">Иван Петров</a>
+                </div>
+                <div class="status-item">
+                  <span class="status-label">Дата выдачи:</span>
+                  <span class="status-value">15.08.2024</span>
+                </div>
+                <div class="status-item">
+                  <span class="status-label">Вернуть до:</span>
+                  <span class="status-value">15.09.2024</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div>© 2026 Библиотека. Все права защищены.</div>
+          <div class="footer-contacts">
+            <span>📞 +7 (999) 123-45-67</span>
+            <span>✉️ library@mail.ru</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
