@@ -1,0 +1,1169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Библиотека — Каталог книг</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/books.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <span class="logo-icon">📚</span>
+            <span>Библиотека</span>
+          </div>
+          <nav class="nav">
+            <a href="index.html" class="active">
+              📖 Книги
+              <span class="nav-badge">10</span>
+            </a>
+            <a href="readers.html">
+              👤 Читатели
+              <span class="nav-badge">5</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN ========== -->
+    <main class="main-content">
+      <div class="container">
+        <h1 class="page-title">Каталог книг</h1>
+        <p class="page-subtitle">
+          Всего книг: <strong>10</strong>
+        </p>
+
+        <!-- Toolbar -->
+        <div class="page-toolbar">
+          <div class="book-search">
+            <input 
+              type="text" 
+              class="book-search-input" 
+              placeholder="🔍 Поиск по названию или автору..."
+            >
+            <button class="book-search-clear">✕</button>
+          </div>
+          <span class="search-result-count">Найдено: 10</span>
+        </div>
+
+        <!-- Book Grid -->
+        <div class="card-grid">
+          <!-- Book Card 1 -->
+          <article class="book-card">
+            <div class="book-cover">
+              <div class="book-cover-placeholder">
+                <span class="book-cover-emoji">📖</span>
+              </div>
+              <span class="book-status-badge badge badge-unavailable">Выдана</span>
+            </div>
+            <div class="book-content">
+              <h3 class="book-title">Мастер и Маргарита</h3>
+              <p class="book-author">Михаил Булгаков</p>
+              <div class="book-meta">
+                <span class="book-year">1967</span>
+                <span class="book-genre">Роман</span>
+              </div>
+              <p class="book-description">
+                Мистический роман о дьяволе, посетившем Москву в 1930-х годах.
+              </p>
+              <button class="btn btn-primary btn-block">Подробнее</button>
+            </div>
+          </article>
+
+          <!-- Book Card 2 -->
+          <article class="book-card">
+            <div class="book-cover">
+              <div class="book-cover-placeholder">
+                <span class="book-cover-emoji">📖</span>
+              </div>
+              <span class="book-status-badge badge badge-available">Доступна</span>
+            </div>
+            <div class="book-content">
+              <h3 class="book-title">Война и мир</h3>
+              <p class="book-author">Лев Толстой</p>
+              <div class="book-meta">
+                <span class="book-year">1869</span>
+                <span class="book-genre">Эпопея</span>
+              </div>
+              <p class="book-description">
+                Масштабное произведение о русском обществе в эпоху наполеоновских войн.
+              </p>
+              <button class="btn btn-primary btn-block">Подробнее</button>
+            </div>
+          </article>
+
+          <!-- Book Card 3 -->
+          <article class="book-card">
+            <div class="book-cover">
+              <div class="book-cover-placeholder">
+                <span class="book-cover-emoji">📖</span>
+              </div>
+              <span class="book-status-badge badge badge-available">Доступна</span>
+            </div>
+            <div class="book-content">
+              <h3 class="book-title">Преступление и наказание</h3>
+              <p class="book-author">Фёдор Достоевский</p>
+              <div class="book-meta">
+                <span class="book-year">1866</span>
+                <span class="book-genre">Роман</span>
+              </div>
+              <p class="book-description">
+                Психологический роман о студенте Раскольникове и его теории.
+              </p>
+              <button class="btn btn-primary btn-block">Подробнее</button>
+            </div>
+          </article>
+
+          <!-- Book Card 4 -->
+          <article class="book-card">
+            <div class="book-cover">
+              <div class="book-cover-placeholder">
+                <span class="book-cover-emoji">📖</span>
+              </div>
+              <span class="book-status-badge badge badge-unavailable">Выдана</span>
+            </div>
+            <div class="book-content">
+              <h3 class="book-title">Евгений Онегин</h3>
+              <p class="book-author">Александр Пушкин</p>
+              <div class="book-meta">
+                <span class="book-year">1833</span>
+                <span class="book-genre">Роман в стихах</span>
+              </div>
+              <p class="book-description">
+                История о разочарованном дворянине и трагической любви.
+              </p>
+              <button class="btn btn-primary btn-block">Подробнее</button>
+            </div>
+          </article>
+
+          <!-- Book Card 5 -->
+          <article class="book-card">
+            <div class="book-cover">
+              <div class="book-cover-placeholder">
+                <span class="book-cover-emoji">📖</span>
+              </div>
+              <span class="book-status-badge badge badge-available">Доступна</span>
+            </div>
+            <div class="book-content">
+              <h3 class="book-title">1984</h3>
+              <p class="book-author">Джордж Оруэлл</p>
+              <div class="book-meta">
+                <span class="book-year">1949</span>
+                <span class="book-genre">Антиутопия</span>
+              </div>
+              <p class="book-description">
+                Роман о тоталитарном обществе и Большом Брате.
+              </p>
+              <button class="btn btn-primary btn-block">Подробнее</button>
+            </div>
+          </article>
+
+          <!-- Book Card 6 -->
+          <article class="book-card">
+            <div class="book-cover">
+              <div class="book-cover-placeholder">
+                <span class="book-cover-emoji">📖</span>
+              </div>
+              <span class="book-status-badge badge badge-available">Доступна</span>
+            </div>
+            <div class="book-content">
+              <h3 class="book-title">Маленький принц</h3>
+              <p class="book-author">Антуан де Сент-Экзюпери</p>
+              <div class="book-meta">
+                <span class="book-year">1943</span>
+                <span class="book-genre">Сказка</span>
+              </div>
+              <p class="book-description">
+                Философская сказка о дружбе, любви и ответственности.
+              </p>
+              <button class="btn btn-primary btn-block">Подробнее</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div>© 2026 Библиотека. Все права защищены.</div>
+          <div class="footer-contacts">
+            <span>📞 +7 (999) 123-45-67</span>
+            <span>✉️ library@mail.ru</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Библиотека — Профиль читателя</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/profile.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <span class="logo-icon">📚</span>
+            <span>Библиотека</span>
+          </div>
+          <nav class="nav">
+            <a href="index.html">
+              📖 Книги
+              <span class="nav-badge">10</span>
+            </a>
+            <a href="readers.html" class="active">
+              👤 Читатели
+              <span class="nav-badge">5</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN ========== -->
+    <main class="main-content">
+      <div class="container">
+        <div class="profile-wrapper">
+          <!-- Profile Header -->
+          <div class="profile-header">
+            <div class="profile-avatar">
+              <span class="profile-avatar-emoji">👤</span>
+            </div>
+            <div class="profile-info">
+              <h1 class="profile-name">Иван Петров</h1>
+              <div class="profile-details">
+                <span>✉️ ivan@mail.ru</span>
+                <span>📞 +7-999-123-45-67</span>
+                <span>📅 Регистрация: 15.01.2024</span>
+              </div>
+              <div class="profile-stats">
+                <span>📚 Прочитано книг: <strong>5</strong></span>
+                <span>📖 Активных книг: <strong>2</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Books Section -->
+          <section class="profile-section">
+            <h2 class="profile-section-title">📖 Активные книги</h2>
+            <div class="active-books-list">
+              <span class="active-book-item">
+                Мастер и Маргарита
+                <span class="active-book-author">(Булгаков)</span>
+              </span>
+              <span class="active-book-item">
+                Евгений Онегин
+                <span class="active-book-author">(Пушкин)</span>
+              </span>
+            </div>
+          </section>
+
+          <!-- History Section -->
+          <section class="profile-section">
+            <h2 class="profile-section-title">📚 История чтения</h2>
+            <div class="history-list">
+              <div class="history-item">
+                <span class="history-book">Война и мир</span>
+                <span class="history-date">
+                  Взята: 01.02.2024, Возвращена: 15.03.2024
+                </span>
+              </div>
+              <div class="history-item">
+                <span class="history-book">Преступление и наказание</span>
+                <span class="history-date">
+                  Взята: 20.03.2024, Возвращена: 10.04.2024
+                </span>
+              </div>
+              <div class="history-item">
+                <span class="history-book">1984</span>
+                <span class="history-date">
+                  Взята: 01.05.2024, Возвращена: 20.06.2024
+                </span>
+              </div>
+              <div class="history-item">
+                <span class="history-book">Маленький принц</span>
+                <span class="history-date">
+                  Взята: 10.07.2024, Возвращена: 01.08.2024
+                </span>
+              </div>
+              <div class="history-item">
+                <span class="history-book">Мастер и Маргарита</span>
+                <span class="history-date">
+                  Взята: 15.08.2024 (активна)
+                </span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div>© 2026 Библиотека. Все права защищены.</div>
+          <div class="footer-contacts">
+            <span>📞 +7 (999) 123-45-67</span>
+            <span>✉️ library@mail.ru</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+ 
+
+    <!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Библиотека — Читатели</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/readers.css">
+</head>
+<body>
+  <div class="page-wrapper">
+    <!-- ========== HEADER ========== -->
+    <header class="header">
+      <div class="container">
+        <div class="header-content">
+          <div class="logo">
+            <span class="logo-icon">📚</span>
+            <span>Библиотека</span>
+          </div>
+          <nav class="nav">
+            <a href="index.html">
+              📖 Книги
+              <span class="nav-badge">10</span>
+            </a>
+            <a href="readers.html" class="active">
+              👤 Читатели
+              <span class="nav-badge">5</span>
+            </a>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <!-- ========== MAIN ========== -->
+    <main class="main-content">
+      <div class="container">
+        <h1 class="page-title">Читатели библиотеки</h1>
+        <p class="page-subtitle">
+          Всего читателей: <strong>5</strong>
+        </p>
+
+        <!-- Reader List -->
+        <div class="reader-list">
+          <!-- Reader Card 1 -->
+          <div class="reader-card">
+            <div class="reader-avatar">
+              <span class="reader-avatar-emoji">👤</span>
+            </div>
+            <div class="reader-content">
+              <h3 class="reader-name">Иван Петров</h3>
+              <p class="reader-email">ivan@mail.ru</p>
+              <div class="reader-stats">
+                <span class="reader-active-books">
+                  📚 Активных книг: <strong>2</strong>
+                </span>
+              </div>
+              <a href="reader-profile.html?id=r1" class="btn btn-primary">
+                Профиль
+              </a>
+            </div>
+          </div>
+
+          <!-- Reader Card 2 -->
+          <div class="reader-card">
+            <div class="reader-avatar">
+              <span class="reader-avatar-emoji">👤</span>
+            </div>
+            <div class="reader-content">
+              <h3 class="reader-name">Мария Иванова</h3>
+              <p class="reader-email">maria@mail.ru</p>
+              <div class="reader-stats">
+                <span class="reader-active-books">
+                  📚 Активных книг: <strong>1</strong>
+                </span>
+              </div>
+              <a href="reader-profile.html?id=r2" class="btn btn-primary">
+                Профиль
+              </a>
+            </div>
+          </div>
+
+          <!-- Reader Card 3 -->
+          <div class="reader-card">
+            <div class="reader-avatar">
+              <span class="reader-avatar-emoji">👤</span>
+            </div>
+            <div class="reader-content">
+              <h3 class="reader-name">Пётр Сидоров</h3>
+              <p class="reader-email">petr@mail.ru</p>
+              <div class="reader-stats">
+                <span class="reader-active-books">
+                  📚 Активных книг: <strong>0</strong>
+                </span>
+              </div>
+              <a href="reader-profile.html?id=r3" class="btn btn-primary">
+                Профиль
+              </a>
+            </div>
+          </div>
+
+          <!-- Reader Card 4 -->
+          <div class="reader-card">
+            <div class="reader-avatar">
+              <span class="reader-avatar-emoji">👤</span>
+            </div>
+            <div class="reader-content">
+              <h3 class="reader-name">Елена Смирнова</h3>
+              <p class="reader-email">elena@mail.ru</p>
+              <div class="reader-stats">
+                <span class="reader-active-books">
+                  📚 Активных книг: <strong>3</strong>
+                </span>
+              </div>
+              <a href="reader-profile.html?id=r4" class="btn btn-primary">
+                Профиль
+              </a>
+            </div>
+          </div>
+
+          <!-- Reader Card 5 -->
+          <div class="reader-card">
+            <div class="reader-avatar">
+              <span class="reader-avatar-emoji">👤</span>
+            </div>
+            <div class="reader-content">
+              <h3 class="reader-name">Алексей Новиков</h3>
+              <p class="reader-email">alexey@mail.ru</p>
+              <div class="reader-stats">
+                <span class="reader-active-books">
+                  📚 Активных книг: <strong>1</strong>
+                </span>
+              </div>
+              <a href="reader-profile.html?id=r5" class="btn btn-primary">
+                Профиль
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div>© 2026 Библиотека. Все права защищены.</div>
+          <div class="footer-contacts">
+            <span>📞 +7 (999) 123-45-67</span>
+            <span>✉️ library@mail.ru</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </div>
+</body>
+</html>
+
+
+/* ============================================
+   BOOKS PAGE
+   ============================================ */
+
+/* Book Card */
+.book-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-hover);
+}
+
+.book-cover {
+  position: relative;
+  background: linear-gradient(135deg, var(--primary-light), var(--primary));
+  height: 160px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.book-cover-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.book-cover-emoji {
+  font-size: 48px;
+}
+
+.book-status-badge {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  background: var(--white);
+}
+
+.book-content {
+  padding: 16px 20px 20px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.book-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 4px;
+  color: var(--primary);
+}
+
+.book-author {
+  color: var(--text-light);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.book-meta {
+  display: flex;
+  gap: 12px;
+  font-size: 13px;
+  color: var(--text-light);
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+}
+
+.book-year {
+  background: var(--bg);
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+
+.book-genre {
+  background: var(--bg);
+  padding: 2px 10px;
+  border-radius: 12px;
+}
+
+.book-description {
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Search */
+.book-search {
+  position: relative;
+  max-width: 500px;
+  width: 100%;
+}
+
+.book-search-input {
+  width: 100%;
+  padding: 12px 20px;
+  border: 2px solid #ddd;
+  border-radius: var(--radius);
+  font-size: 16px;
+  transition: var(--transition);
+  background: var(--white);
+}
+
+.book-search-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+.book-search-clear {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--text-light);
+  font-size: 18px;
+  padding: 4px 8px;
+}
+
+.book-search-clear:hover {
+  color: var(--danger);
+}
+
+/* Toolbar */
+.page-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+.search-result-count {
+  font-size: 14px;
+  color: var(--text-light);
+  background: var(--white);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  white-space: nowrap;
+}
+
+
+/* ============================================
+   READER PROFILE PAGE
+   ============================================ */
+
+.profile-wrapper {
+  max-width: 800px;
+}
+
+/* Profile Header */
+.profile-header {
+  display: flex;
+  gap: 32px;
+  padding: 32px;
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+  margin-bottom: 32px;
+  align-items: flex-start;
+}
+
+.profile-avatar {
+  flex-shrink: 0;
+  width: 100px;
+  height: 100px;
+  background: var(--bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.profile-avatar-emoji {
+  font-size: 48px;
+}
+
+.profile-info {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 12px;
+}
+
+.profile-details {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 14px;
+  color: var(--text-light);
+  margin-bottom: 16px;
+}
+
+.profile-stats {
+  display: flex;
+  gap: 24px;
+  font-size: 15px;
+}
+
+/* Profile Sections */
+.profile-section {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 24px 32px;
+  box-shadow: var(--shadow);
+  margin-bottom: 24px;
+}
+
+.profile-section-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 16px;
+}
+
+/* Active Books */
+.active-books-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.active-book-item {
+  background: var(--bg);
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+}
+
+.active-book-author {
+  color: var(--text-light);
+  font-size: 13px;
+}
+
+/* History */
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.history-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--bg);
+}
+
+.history-item:last-child {
+  border-bottom: none;
+}
+
+.history-book {
+  font-weight: 500;
+  color: var(--primary);
+}
+
+.history-date {
+  font-size: 14px;
+  color: var(--text-light);
+}
+
+.profile-empty-text {
+  color: var(--text-light);
+  font-style: italic;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .profile-header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .profile-details {
+    justify-content: center;
+  }
+
+  .profile-stats {
+    justify-content: center;
+  }
+
+  .history-item {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 4px;
+  }
+}
+
+
+/* ============================================
+   READERS PAGE
+   ============================================ */
+
+/* Reader Card */
+.reader-card {
+  background: var(--white);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  box-shadow: var(--shadow);
+  transition: var(--transition);
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+.reader-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.reader-avatar {
+  flex-shrink: 0;
+  width: 64px;
+  height: 64px;
+  background: var(--bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reader-avatar-emoji {
+  font-size: 32px;
+}
+
+.reader-content {
+  flex: 1;
+}
+
+.reader-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+.reader-email {
+  color: var(--text-light);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.reader-stats {
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 16px;
+}
+
+.reader-active-books {
+  background: var(--bg);
+  padding: 4px 12px;
+  border-radius: 12px;
+  display: inline-block;
+}
+
+/* Reader List */
+.reader-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .reader-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+
+/* ============================================
+   RESET & BASE
+   ============================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary: #2c3e50;
+  --primary-light: #34495e;
+  --accent: #3498db;
+  --accent-hover: #2980b9;
+  --success: #27ae60;
+  --success-light: #2ecc71;
+  --danger: #e74c3c;
+  --danger-light: #c0392b;
+  --warning: #f39c12;
+  --bg: #ecf0f1;
+  --bg-light: #f5f6fa;
+  --text: #2c3e50;
+  --text-light: #7f8c8d;
+  --white: #ffffff;
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-hover: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --radius: 8px;
+  --radius-lg: 12px;
+  --transition: all 0.3s ease;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+.header {
+  background: var(--primary);
+  color: var(--white);
+  padding: 16px 0;
+  box-shadow: var(--shadow);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.logo-icon {
+  font-size: 32px;
+}
+
+.nav {
+  display: flex;
+  gap: 8px;
+}
+
+.nav a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: var(--radius);
+  transition: var(--transition);
+  font-weight: 500;
+  font-size: 15px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.nav a:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--white);
+}
+
+.nav a.active {
+  background: rgba(255, 255, 255, 0.15);
+  color: var(--white);
+}
+
+.nav-badge {
+  background: var(--accent);
+  color: var(--white);
+  padding: 2px 10px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+.footer {
+  background: var(--primary);
+  color: rgba(255, 255, 255, 0.8);
+  padding: 20px 0;
+  margin-top: auto;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  font-size: 14px;
+}
+
+.footer-contacts {
+  display: flex;
+  gap: 20px;
+}
+
+/* ============================================
+   COMMON COMPONENTS
+   ============================================ */
+.page-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 8px;
+}
+
+.page-subtitle {
+  color: var(--text-light);
+  font-size: 16px;
+  margin-bottom: 24px;
+}
+
+/* Badges */
+.badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.badge-available {
+  background: #d4edda;
+  color: #155724;
+}
+
+.badge-unavailable {
+  background: #f8d7da;
+  color: #721c24;
+}
+
+/* Buttons */
+.btn {
+  padding: 8px 20px;
+  border: none;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: var(--transition);
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background: transparent;
+  border: 2px solid var(--accent);
+  color: var(--accent);
+}
+
+.btn-outline:hover {
+  background: var(--accent);
+  color: var(--white);
+}
+
+.btn-block {
+  width: 100%;
+  text-align: center;
+}
+
+/* Card Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 24px;
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+  color: var(--text-light);
+}
+
+.empty-state-icon {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.empty-state h3 {
+  margin-bottom: 8px;
+  color: var(--text);
+}
+
+/* Layout */
+.page-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+  padding: 32px 0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media (max-width: 768px) {
+  .header-content {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .nav {
+    width: 100%;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .footer-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-contacts {
+    flex-direction: column;
+    gap: 4px;
+  }
+}

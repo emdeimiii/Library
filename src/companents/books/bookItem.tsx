@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom"
 import type { IBook } from "../../types/book.types"
 
 
@@ -26,7 +27,7 @@ const BookItem = ({book}: {book: IBook}) =>{
               <p className="book-description">
                 {book.description}
               </p>
-              <button className="btn btn-primary btn-block">Подробнее</button>
+              <Link to={`/books/${book.id}`} className="btn btn-primary btn-block">Подробнее</Link>
             </div>
           </article>
     )

@@ -4,7 +4,7 @@ import './index.css'
 import ReaderProFilePage from './peigers/readerProFile/readerProFile'
 import { Route, Routes } from 'react-router-dom'
 import Readerspage from './peigers/reders/readers'
-
+import BookDeitel from './peigers/Bookdeital/bookDeital'
 
 
 function App() {
@@ -15,6 +15,7 @@ function App() {
       <Route path='' element={<BookPage/>}/>
       <Route path='readers' element={<Readerspage/>}/>
       <Route path='readers/:id' element={<ReaderProFilePage/>}/>
+      <Route path='books/:id' element={<BookDeitel/>}/>
       {/* </Route> */}
       
     </Routes>

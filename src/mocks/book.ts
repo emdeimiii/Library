@@ -8,7 +8,16 @@ export const mockBooks: IBook[] = [
     year: 1967,
     genre: 'Роман',
     isAvailable: false,
-    description: 'Мистический роман о дьяволе, посетившем Москву в 1930-х годах.'
+    description: 'Мистический роман о дьяволе, посетившем Москву в 1930-х годах.',
+
+    publisher: 'Журнал "Москва"',
+    pages: 480,
+    language: "Русский",
+    isbn: "978-5-17-099245-3",
+    location: "Главный зал, стеллаж А-12",
+    copies: 3,
+    availableCopies: 0,
+    tags: ["мистика", "философия", "классика", "XX век"]
   },
   {
     id: '2',
@@ -17,7 +26,16 @@ export const mockBooks: IBook[] = [
     year: 1869,
     genre: 'Эпопея',
     isAvailable: true,
-    description: 'Масштабное произведение о русском обществе в эпоху наполеоновских войн.'
+    description: 'Масштабное произведение о русском обществе в эпоху наполеоновских войн.',
+
+    publisher: "АСТ",
+    pages: 1224,
+    language: "Русский",
+    isbn: "978-5-17-082647-7",
+    location: "Главный зал, стеллаж Б-05",
+    copies: 5,
+    availableCopies: 2,
+    tags: ["классика", "история", "война", "XIX век"],
   },
   {
     id: '3',
@@ -26,7 +44,16 @@ export const mockBooks: IBook[] = [
     year: 1866,
     genre: 'Роман',
     isAvailable: true,
-    description: 'Психологический роман о студенте Раскольникове и его теории.'
+    description: 'Психологический роман о студенте Раскольникове и его теории.',
+
+    publisher: "Азбука",
+    pages: 608,
+    language: "Русский",
+    isbn: "978-5-389-07455-1",
+    location: "Главный зал, стеллаж Б-08",
+    copies: 4,
+    availableCopies: 3,
+    tags: ["психология", "классика", "философия", "XIX век"],
   },
   {
     id: '4',
@@ -35,7 +62,16 @@ export const mockBooks: IBook[] = [
     year: 1833,
     genre: 'Роман в стихах',
     isAvailable: false,
-    description: 'История о разочарованном дворянине и трагической любви.'
+    description: 'История о разочарованном дворянине и трагической любви.',
+
+    publisher: "Эксмо",
+    pages: 320,
+    language: "Русский",
+    isbn: "978-5-04-098765-2",
+    location: "Главный зал, стеллаж А-03",
+    copies: 6,
+    availableCopies: 0,
+    tags: ["поэзия", "классика", "любовь", "XIX век"],
   },
   {
     id: '5',
@@ -44,7 +80,16 @@ export const mockBooks: IBook[] = [
     year: 1949,
     genre: 'Антиутопия',
     isAvailable: true,
-    description: 'Роман о тоталитарном обществе и Большом Брате.'
+    description: 'Роман о тоталитарном обществе и Большом Брате.',
+
+    publisher: "АСТ",
+    pages: 352,
+    language: "Русский",
+    isbn: "978-5-17-080262-1",
+    location: "Зал иностранной литературы, стеллаж В-15",
+    copies: 3,
+    availableCopies: 1,
+    tags: ["антиутопия", "политика", "философия", "XX век"],
   },
   {
     id: '6',
@@ -53,6 +98,15 @@ export const mockBooks: IBook[] = [
     year: 1943,
     genre: 'Сказка',
     isAvailable: true,
-    description: 'Философская сказка о дружбе, любви и ответственности.'
+    description: 'Философская сказка о дружбе, любви и ответственности.',
+
+    publisher: "Азбука",
+    pages: 96,
+    language: "Русский",
+    isbn: "978-5-389-06345-7",
+    location: "Детский зал, стеллаж Г-02",
+    copies: 8,
+    availableCopies: 5,
+    tags: ["сказка", "философия", "детская литература", "XX век"],
   }
 ];

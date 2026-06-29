@@ -1,7 +1,7 @@
 import type { IReader } from "../../types/reader.types"
 import { Link} from "react-router-dom";
 
-import { mockReaders } from "../../mocks/readers"; 
+
 
 interface ReaderCardProps {
   reader: IReader;
