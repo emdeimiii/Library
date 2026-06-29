@@ -1,12 +1,13 @@
 
 import DetalSection from '../../companents/BookDeitail/bookDetailSections'
-import FooterBookDeit from '../../companents/common/footerBookDeital'
-import HeaderDeitl from '../../companents/common/haderBookDeitail'
 import './bookDeitel.css'
 import { mockBooks } from "../../mocks/book"
 import { useParams } from 'react-router-dom'
 import DetailCard from '../../companents/BookDeitail/bookDetailCard'
 import { Link } from 'react-router-dom'
+import Footer from '../../companents/common/footer'
+import Header from '../../companents/common/header'
+
 
 
 const BookDeitel = () =>{
@@ -25,7 +26,7 @@ const BookDeitel = () =>{
     
   <div className="page-wrapper">
     {/* <!-- Header --> */}
-    <HeaderDeitl/>
+    <Header/>
 
     {/* <!-- Main Content --> */}
     <main className="main-content">
@@ -45,7 +46,7 @@ const BookDeitel = () =>{
     </main>
 
     {/* <!-- Footer --> */}
-   <FooterBookDeit/>
+   <Footer/>
   </div>
 
 

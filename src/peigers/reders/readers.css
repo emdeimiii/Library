@@ -3,6 +3,22 @@
    ============================================ */
 
 /* Reader Card */
+.page-header{
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.page-header .page-title{
+  margin-bottom: 4px;
+}
+.page-header .page-subtitle{
+  margin-bottom: 0;
+}
+
 .reader-card {
   background: var(--white);
   border-radius: var(--radius-lg);
