@@ -32,7 +32,7 @@ const Readerspage = () =>{
       <>
           <div className="page-wrapper">
     
-    <Header/>
+  
     {/* <!-- ========== MAIN ========== --> */}
     <main className="main-content">
       <div className="container">
@@ -54,7 +54,7 @@ const Readerspage = () =>{
     </main>
 
     {/* <!-- ========== FOOTER ========== --> */}
-   <Footer/>
+
   </div>
   </>
     )
