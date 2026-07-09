@@ -5,9 +5,6 @@ import { mockBooks } from "../../mocks/book"
 import { useParams } from 'react-router-dom'
 import DetailCard from '../../companents/BookDeitail/bookDetailCard'
 import { Link } from 'react-router-dom'
-import Footer from '../../companents/common/footer'
-import Header from '../../companents/common/header'
-
 
 
 const BookDeitel = () =>{
