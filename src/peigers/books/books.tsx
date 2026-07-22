@@ -1,6 +1,5 @@
 import BookList from "../../companents/books/bookList"
-import Footer from "../../companents/common/footer"
-import Header from "../../companents/common/header"
+
 import './books.css'
 
 import { mockBooks } from "../../mocks/book"
@@ -8,7 +7,7 @@ import { mockBooks } from "../../mocks/book"
 const BookPage = () =>{
     return(
           <div className="page-wrapper">
-<Header/>
+
 
     {/* <!-- ========== MAIN ========== --> */}
     <main className="main-content">
@@ -34,7 +33,7 @@ const BookPage = () =>{
       </div>
     </main>
 
-    <Footer/>
+  
   </div>
     )
 }

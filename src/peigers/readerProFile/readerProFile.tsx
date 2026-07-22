@@ -22,7 +22,7 @@ const ReaderProFilePage = () => {
 
   return (
     <div className="page-wrapper">
-      <Header />
+     
       {/* <!-- ========== MAIN ========== --> */}
       <main className="main-content">
         <div className="container">
@@ -38,7 +38,7 @@ const ReaderProFilePage = () => {
           </div>
         </div>
       </main>
-      <Footer />
+
     </div>
   )
 }

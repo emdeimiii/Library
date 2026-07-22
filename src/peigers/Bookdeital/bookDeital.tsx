@@ -26,7 +26,7 @@ const BookDeitel = () =>{
     
   <div className="page-wrapper">
     {/* <!-- Header --> */}
-    <Header/>
+  
 
     {/* <!-- Main Content --> */}
     <main className="main-content">
@@ -46,7 +46,7 @@ const BookDeitel = () =>{
     </main>
 
     {/* <!-- Footer --> */}
-   <Footer/>
+
   </div>
 
 
