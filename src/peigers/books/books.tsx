@@ -1,10 +1,31 @@
-import BookList from "../../companents/books/bookList"
+import BookList from "../../companents/books/bookList";
+import './books.css';
+import { mockBooks } from "../../mocks/book";
+import { useEffect, useState } from "react";
 
-import './books.css'
+import type {KeyboardEvent} from 'react';
+import AddBookModal from "../../companents/addModal/addBookModal";
 
-import { mockBooks } from "../../mocks/book"
 
 const BookPage = () =>{
+  const [showModalBook, setShowModalBook] = useState(false)
+  const closeHendlerBook = () => {
+    setShowModalBook(false)
+  }
+  useEffect(()=>{
+    const escHendlerBook = (e : KeyboardEvent) =>{
+      if (e.key === "Escape"){
+        closeHendlerBook()
+      }
+    }
+    if(showModalBook){
+    document.addEventListener('keydown', escHendlerBook);
+    }
+    return()=>{
+      document.removeEventListener('keydown', escHendlerBook);     
+    }
+  }, [showModalBook])
+  
     return(
           <div className="page-wrapper">
 
@@ -27,9 +48,13 @@ const BookPage = () =>{
             />
             <button className="book-search-clear">✕</button>
           </div>
+          <div>
+        <button className="btn btn-primary" id = 'add-reader-btn' onClick={()=>setShowModalBook(true)} > + Добавить книгу </button>
+        </div>
           <span className="search-result-count">Найдено: 10</span>
         </div>
         <BookList books ={mockBooks}/>
+        {showModalBook && <AddBookModal  hendleClickBook={closeHendlerBook}/>}
       </div>
     </main>
 
