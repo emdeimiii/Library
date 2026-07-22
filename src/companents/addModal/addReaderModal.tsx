@@ -1,13 +1,20 @@
 
+import type { IReader } from '../../types/reader.types';
 import './addingModal.css';
+import type { SubmitEvent, MouseEvent, RefObject } from 'react';
 
 type AddReaderModalProps = {
-  hendleClick: ()=>void
+  hendleClick: ()=>void;
+  handlerSubmit: (ev: SubmitEvent<HTMLFormElement>)=>void;
+  phone: string;
+  handlePhoneChange:()=>void;
+  refFullName:RefObject<HTMLInputElement> | null;
+  refEmail:RefObject<HTMLInputElement> | null;
+  reader?: IReader
 }
-const AddReaderModal = ({hendleClick} : AddReaderModalProps) => {
-  const OverlayClickHendler = (event : any) =>{
-    const clickTarget = event.target;
-    if(clickTarget.className === 'modal-overlay'){
+const AddReaderModal = ({hendleClick, handlerSubmit,refFullName, refEmail, phone, handlePhoneChange, reader} : AddReaderModalProps) => {
+  const OverlayClickHendler = (event : MouseEvent<HTMLDivElement>) =>{
+    if(event.target === event.currentTarget){
       hendleClick()
     }
   }
@@ -19,12 +26,14 @@ const AddReaderModal = ({hendleClick} : AddReaderModalProps) => {
           <button className="modal-close" onClick={hendleClick}>×</button>
         </div>
         
-        <form >
+        <form onSubmit={handlerSubmit} >
           <div className="form-group">
             <label htmlFor="fullName">ФИО *</label>
             <input
               id="fullName"
               type="text"
+              ref={refFullName}
+              defaultValue={reader?.fullName || ''}
             />
             <span className="error-text">Текст ошибки</span>
           </div>
@@ -34,6 +43,7 @@ const AddReaderModal = ({hendleClick} : AddReaderModalProps) => {
             <input
               id="email"
               type="email"
+              ref={refEmail}
             />
             <span className="error-text">Текст ошибки</span>
           </div>
@@ -43,6 +53,8 @@ const AddReaderModal = ({hendleClick} : AddReaderModalProps) => {
             <input
               id="phone"
               type="tel"
+              value={phone}
+              onChange={()=>{handlePhoneChange}}
             />
             <span className="error-text">Текст ошибки</span>
           </div>

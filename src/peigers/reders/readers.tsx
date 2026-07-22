@@ -2,15 +2,37 @@
 import ReaderList from "../../companents/Readers/readersList";
 import './readers.css';
 import { mockReaders } from "../../mocks/readers";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AddReaderModal from "../../companents/addModal/addReaderModal";
-import type {KeyboardEvent} from 'react';
+import type {ChangeEventHandler, KeyboardEvent, SubmitEvent} from 'react';
+
 
 
 const Readerspage = () =>{
   const [showModal, setShowModal] = useState(false);
+
+ const refFullName = useRef<HTMLInputElement>(null);
+ const refEmail = useRef<HTMLInputElement>(null);
+ const [phone, setPhone] = useState('');
+
   const closeHendler = () => {
     setShowModal(false);
+  }
+  // функ для телефона
+
+  const handlePhoneChange: ChangeEventHandler<HTMLInputElement> = (e) =>{
+    const inputData = e.target.value.replace(/\D/g, '');
+    // валидация и преобразование 
+    // setPhone(FormPhone(inputData));
+    setPhone(inputData);
+  }
+
+  const submitHandler=(ev: SubmitEvent<HTMLFormElement>)=>{
+    ev.preventDefault();
+    
+    // получить данные из формы и валидация
+    if (refFullName.current){
+    const fullName = refFullName.current.value.trim();}
   }
   
   useEffect(()=>{
@@ -48,7 +70,10 @@ const Readerspage = () =>{
         </div>
 {/*  <!-- Reader List --> */}
         <ReaderList readers={mockReaders}/>
-        {showModal && <AddReaderModal hendleClick={closeHendler}/>}
+        {showModal && <AddReaderModal hendleClick={closeHendler} handlerSubmit={submitHandler} 
+        refFullName={refFullName} refEmail={refEmail}
+        phone={phone} handlePhoneChange={handlePhoneChange}
+        />}
       </div>
     </main>
 
