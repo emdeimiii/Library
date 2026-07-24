@@ -1,17 +1,37 @@
+import type { MouseEvent, RefObject, SubmitEvent } from 'react';
 import './addingModal.css';
+import type { IBook } from '../../types/book.types';
 
+interface BookData {
+  title: string;
+  author: string;
+  isbn: string;
+  year: string;
+  genre: string;
+  quantity: string;
+} 
 type AddBookrModalProps = {
-  hendleClickBook: ()=>void
+  hendleClickBook: () => void;
+  submitHandlerBook: (e: SubmitEvent<HTMLFormElement>) => void;
+  handleYearChange: () => void;
+  year: string;
+  refTitle: RefObject<HTMLInputElement> | null;
+  refAuthor: RefObject<HTMLInputElement> | null;
+  refIsbn: RefObject<HTMLInputElement> | null;
+  refQuantity: RefObject<HTMLInputElement> | null;
+  book: IBook;
+   errors: Partial<BookData>;
+ 
 }
 
-const AddBookModal = ({hendleClickBook} : AddBookrModalProps) =>{
-    const OverlayClickHendlerBook = (e : any) =>{
-        const clickTargetBook = e.target;
-        if(clickTargetBook.className === 'modal-overlay'){
+const AddBookModal = ({ hendleClickBook, refTitle, refAuthor, refIsbn, refQuantity, year, handleYearChange, submitHandlerBook, book, errors }: AddBookrModalProps) => {
+  const OverlayClickHendlerBook = (e: MouseEvent<HTMLDivElement>) => {
+    if (e.target === e.currentTarget) {
       hendleClickBook()
-    }}
-    return(
-        <div className="modal-overlay" onClick={OverlayClickHendlerBook}>
+    }
+  }
+  return (
+    <div className="modal-overlay" onClick={OverlayClickHendlerBook}>
       <div className="modal">
         <div className="modal-header">
           <h2>Добавление книги</h2>
@@ -24,35 +44,44 @@ const AddBookModal = ({hendleClickBook} : AddBookrModalProps) =>{
             <input
               id="title"
               type="text"
+              ref={refTitle}
+              defaultValue={book?.title || ''}
             />
-            <span className="error-text">Текст ошибки</span>
+             {errors.title && <span className="error-text">{errors.title}</span>}
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="author">Автор *</label>
             <input
               id="author"
               type="text"
+              ref={refAuthor}
+               defaultValue={book?.author || ''}
             />
-            <span className="error-text">Текст ошибки</span>
+             {errors.author && <span className="error-text">{errors.author}</span>}
           </div>
-          
+
           <div className="form-group">
             <label htmlFor="isbn">ISBN</label>
             <input
               id="isbn"
               type="text"
+              ref={refIsbn}
+                defaultValue={book?.isbn || ''}
             />
-            <span className="error-text">Текст ошибки</span>
+              {errors.isbn && <span className="error-text">{errors.isbn}</span>}
           </div>
 
           <div className="form-group">
             <label htmlFor="year">Год издания</label>
             <input
               id="year"
-              type="number"
+              type="text"
+              value={year}
+              onChange={handleYearChange}
+               maxLength={4}
             />
-            <span className="error-text">Текст ошибки</span>
+               {errors.year && <span className="error-text">{errors.year}</span>}
           </div>
 
           <div className="form-group">
@@ -74,10 +103,11 @@ const AddBookModal = ({hendleClickBook} : AddBookrModalProps) =>{
               id="quantity"
               type="number"
               min="1"
+              ref={refQuantity}
             />
-            <span className="error-text">Текст ошибки</span>
+          {errors.quantity && <span className="error-text">{errors.quantity}</span>}
           </div>
-          
+
           <div className="modal-footer">
             <button type="button" className="btn btn-outline" onClick={hendleClickBook}>
               Отмена
@@ -89,9 +119,8 @@ const AddBookModal = ({hendleClickBook} : AddBookrModalProps) =>{
         </form>
       </div>
     </div>
-    )
+  )
 }
 
 
 export default AddBookModal
-    
