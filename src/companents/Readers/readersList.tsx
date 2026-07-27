@@ -1,13 +1,15 @@
 import ReadersItem from "./readersItem"
-
-
 import type { IReader } from "../../types/reader.types"
+import { getAllReaders } from "../../store/reader-slice";
+import { useSelector } from "react-redux";
 
 interface ReadersListProps {
     readers: IReader[];
 }
 
-const ReaderList = ({ readers }: ReadersListProps) => {
+const ReaderList = () => {
+    const readers: IReader[] = useSelector(getAllReaders)
+    
     if (readers.length === 0) {
         return <p>Нет читателей</p>;
     }

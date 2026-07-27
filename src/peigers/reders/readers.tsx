@@ -1,19 +1,23 @@
 
 import ReaderList from "../../companents/Readers/readersList";
 import './readers.css';
-import { mockReaders } from "../../mocks/readers";
+
 import { useEffect, useRef, useState } from "react";
 import AddReaderModal from "../../companents/addModal/addReaderModal";
 import type {ChangeEventHandler, KeyboardEvent, SubmitEvent} from 'react';
+import { useSelector } from "react-redux";
+import { getCountReaders } from "../../store/reader-slice";
 
 
 
 const Readerspage = () =>{
-  const [showModal, setShowModal] = useState(false);
 
- const refFullName = useRef<HTMLInputElement>(null);
- const refEmail = useRef<HTMLInputElement>(null);
- const [phone, setPhone] = useState('');
+  const [showModal, setShowModal] = useState(false);
+  const refFullName = useRef<HTMLInputElement>(null);
+  const refEmail = useRef<HTMLInputElement>(null);
+  const [phone, setPhone] = useState('');
+  
+  const count = useSelector(getCountReaders);
 
   const closeHendler = () => {
     setShowModal(false);
@@ -61,7 +65,7 @@ const Readerspage = () =>{
         <div>
         <h1 className="page-title">Читатели библиотеки</h1>
         <p className="page-subtitle">
-          Всего читателей: <strong>{mockReaders.length}</strong>
+          Всего читателей: <strong>{count}</strong>
         </p>
         </div>
         <div>
@@ -69,7 +73,7 @@ const Readerspage = () =>{
         </div>
         </div>
 {/*  <!-- Reader List --> */}
-        <ReaderList readers={mockReaders}/>
+        <ReaderList />
         {showModal && <AddReaderModal hendleClick={closeHendler} handlerSubmit={submitHandler} 
         refFullName={refFullName} refEmail={refEmail}
         phone={phone} handlePhoneChange={handlePhoneChange}
