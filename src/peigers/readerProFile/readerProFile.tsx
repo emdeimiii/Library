@@ -1,6 +1,4 @@
 import { useParams } from "react-router-dom"
-import Footer from "../../companents/common/footer"
-import Header from "../../companents/common/header"
 import ActiveBooks from "../../companents/History/ActiveBooks"
 import HistorySection from "../../companents/History/History"
 import ReadersProfile from "../../companents/Readers/ReadersProfile"

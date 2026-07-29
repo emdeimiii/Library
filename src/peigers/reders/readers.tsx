@@ -2,9 +2,9 @@
 import ReaderList from "../../companents/Readers/readersList";
 import './readers.css';
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import AddReaderModal from "../../companents/addModal/addReaderModal";
-import type {ChangeEventHandler, KeyboardEvent, SubmitEvent} from 'react';
+import type { KeyboardEvent} from 'react';
 import { useSelector } from "react-redux";
 import { getCountReaders } from "../../store/reader-slice";
 
@@ -13,31 +13,19 @@ import { getCountReaders } from "../../store/reader-slice";
 const Readerspage = () =>{
 
   const [showModal, setShowModal] = useState(false);
-  const refFullName = useRef<HTMLInputElement>(null);
-  const refEmail = useRef<HTMLInputElement>(null);
-  const [phone, setPhone] = useState('');
+
   
   const count = useSelector(getCountReaders);
 
   const closeHendler = () => {
     setShowModal(false);
   }
-  // функ для телефона
-
-  const handlePhoneChange: ChangeEventHandler<HTMLInputElement> = (e) =>{
-    const inputData = e.target.value.replace(/\D/g, '');
-    // валидация и преобразование 
-    // setPhone(FormPhone(inputData));
-    setPhone(inputData);
-  }
-
-  const submitHandler=(ev: SubmitEvent<HTMLFormElement>)=>{
-    ev.preventDefault();
-    
+  //const submitHandler=(ev: SubmitEvent<HTMLFormElement>)=>{
+    //ev.preventDefault();
     // получить данные из формы и валидация
-    if (refFullName.current){
-    const fullName = refFullName.current.value.trim();}
-  }
+    //if (refFullName.current){
+    //const fullName = refFullName.current.value.trim();}
+ // }
   
   useEffect(()=>{
     const escHendler = (event:KeyboardEvent)=>{
@@ -74,9 +62,8 @@ const Readerspage = () =>{
         </div>
 {/*  <!-- Reader List --> */}
         <ReaderList />
-        {showModal && <AddReaderModal hendleClick={closeHendler} handlerSubmit={submitHandler} 
-        refFullName={refFullName} refEmail={refEmail}
-        phone={phone} handlePhoneChange={handlePhoneChange}
+        {showModal && <AddReaderModal 
+        closeHendler={closeHendler}
         />}
       </div>
     </main>
