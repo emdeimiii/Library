@@ -1,7 +1,9 @@
 export interface IBookHistory {
 bookId: string;
 takenAt: Date;
-returnedAt?: Date; }
+returnedAt?: Date;
+    id: string;
+ }
 
 export interface IReader {
 id: string;
