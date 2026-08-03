@@ -2,8 +2,9 @@
 import { useDispatch } from 'react-redux';
 import type { IReader } from '../../types/reader.types';
 import './addingModal.css';
-import { type SubmitEvent, type MouseEvent, type RefObject, type SubmitEventHandler, useRef, useState, type ChangeEventHandler } from 'react';
+import { type MouseEvent, type SubmitEventHandler, useRef, useState, type ChangeEventHandler } from 'react';
 import { addReader } from '../../store/reader-slice';
+import { formatPhone } from '../../utils';
 
 type AddReaderModalProps = {
   closeHendler: ()=>void;
@@ -29,15 +30,11 @@ const AddReaderModal = ({ reader= null, closeHendler} : AddReaderModalProps) => 
     dispatch(addReader(newReader));
     closeHendler()
   }
-  //format phone def
+
     const handlePhoneChange: ChangeEventHandler<HTMLInputElement> = (e) =>{
     const inputData = e.target.value.replace(/\D/g, '');
-    // валидация и преобразование 
-    // setPhone(FormPhone(inputData));
-    setPhone(inputData);
+     setPhone(formatPhone(inputData));
   }
-
-
   const OverlayClickHendler = (event : MouseEvent<HTMLDivElement>) =>{
     if(event.target === event.currentTarget){
       closeHendler()
@@ -79,7 +76,7 @@ const AddReaderModal = ({ reader= null, closeHendler} : AddReaderModalProps) => 
               id="phone"
               type="tel"
               value={phone}
-              onChange={()=>{handlePhoneChange}}
+              onChange={handlePhoneChange}
             />
             <span className="error-text">Текст ошибки</span>
           </div>

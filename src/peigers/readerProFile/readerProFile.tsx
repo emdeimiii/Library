@@ -69,7 +69,7 @@ const ReaderProFilePage = () => {
         activeBooks: prevReader.activeBooks.filter((id) => id !== bookId),
         booksHistory: prevReader.booksHistory.map((e) =>
           e.bookId === bookId 
-            ?  { ...e,  returnDate: new Date() }
+            ?  { ...e,  returnedAt: new Date() }
             : e
         ),
       };

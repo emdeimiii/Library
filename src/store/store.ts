@@ -7,3 +7,4 @@ export const store = configureStore({
         //book: 
     }
 });
+export type AppDispatch = typeof store.dispatch

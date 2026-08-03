@@ -1,16 +1,12 @@
 
 import ReaderList from "../../companents/Readers/readersList";
 import './readers.css';
-
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import AddReaderModal from "../../companents/addModal/addReaderModal";
-
-import type { ChangeEventHandler, KeyboardEvent, SubmitEvent } from 'react';
-
-
 import { useSelector } from "react-redux";
 import { getCountReaders } from "../../store/reader-slice";
-
+import  type { SubmitEvent } from "react";
+import { formatPhone } from "../../utils";
 
 
 const Readerspage = () => {
@@ -21,35 +17,11 @@ const Readerspage = () => {
   const refEmail = useRef<HTMLInputElement>(null);
   const [phone, setPhone] = useState('');
 
-
-
-  
-
   const count = useSelector(getCountReaders);
 
   const closeHendler = () => {
     setShowModal(false);
   }
-
-  const formatPhone = (raw: string): string => {
-    // +7 (999) 999-99-99
-    let result = '';
-    if (raw.length === 0) return result;
-    result += '+7';
-    if (raw.length > 1) {
-      result += ' (' + raw.substring(1, 4);
-    }
-    if (raw.length > 4) {
-      result += ') ' + raw.substring(4, 7);
-    }
-    if (raw.length > 7) {
-      result += '-' + raw.substring(7, 9);
-    }
-    if (raw.length > 9) {
-      result += '-' + raw.substring(9, 11);
-    }
-    return result;
-  };
 
   const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const raw = e.target.value.replace(/\D/g, '');
@@ -70,8 +42,6 @@ const Readerspage = () => {
   useEffect(() => {
     const escHendler = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
-
-
         closeHendler()
       }
     }
@@ -87,8 +57,6 @@ const Readerspage = () => {
   return (
     <>
       <div className="page-wrapper">
-
-
         {/* <!-- ========== MAIN ========== --> */}
         <main className="main-content">
           <div className="container">
@@ -104,8 +72,8 @@ const Readerspage = () => {
               </div>
             </div>
             {/*  <!-- Reader List --> */}
-            <ReaderList />
-            {showModal && <AddReaderModal hendleClick={closeHendler} handlerSubmit={submitHandler}
+            <ReaderList/>
+            {showModal && <AddReaderModal closeHendler={closeHendler} handlerSubmit={submitHandler}
               refFullName={refFullName} refEmail={refEmail}
               phone={phone} handlePhoneChange={handlePhoneChange}
             />}

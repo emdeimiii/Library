@@ -58,8 +58,11 @@ const AddModalExtradition = ({ handleClickExtradition, onExtradition }: AddModal
 
         {/* <!-- Список книг --> */}
         <div className="book-list" id="bookList">
-           {foundBooks.length > 0 ? (
-            foundBooks.map((book) => (
+          
+           { searchQuery.trim() && foundBooks.length > 0 ? (
+            foundBooks
+            .filter((book) => book.isAvailable !== false)
+            .map((book) => (
               <div 
                 key={book.id} 
                 className="book-item" 

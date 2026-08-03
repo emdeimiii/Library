@@ -3,14 +3,16 @@ import type { IReader } from "../../types/reader.types"
 import { getAllReaders, getReaders, selectReadersStatus } from "../../store/reader-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import type { AppDispatch } from "../../store/store";
+
 
 interface ReadersListProps {
     readers: IReader[];
 }
 
 const ReaderList = () => {
-      const dispatch = useDispatch();
-      const readerss = useSelector(getAllReaders);
+    const dispatch = useDispatch<AppDispatch>();
+    const readers = useSelector(getAllReaders);
   const status = useSelector(selectReadersStatus);
 
     useEffect(() => {
@@ -26,7 +28,6 @@ const ReaderList = () => {
   if (status === 'failed') return <div>❌ Ошибка</div>;
 
 
-    const readers: IReader[] = useSelector(getAllReaders)
     
     if (readers.length === 0) {
         return <p>Нет читателей</p>;

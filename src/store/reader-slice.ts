@@ -1,8 +1,10 @@
 
 import type { IReader } from "../types/reader.types";
-import { mockReaders } from "../mocks/readers";
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import { fetchAllReaders } from "../services/api";
+import { useDispatch } from "react-redux";
+import type { AppDispatch } from "./store";
+import type { RootState } from "@reduxjs/toolkit/query";
 
 type TInitState = {
     readers: IReader[],
@@ -49,6 +51,6 @@ export const ReaderSlice = createSlice({
 
 export const getAllReaders =  (state) => state.readers.readers;
 export const getCountReaders = (state) => state.readers.readers.length;
-//export const selectReadersStatus = (state.error) => state.readers.readers.length;
-
-//export const {addReader, updateReader} = ReaderSlice.actions;
+export const selectReadersStatus = (state:RootState) => state.readers.status
+export const {addReader, updateReader} = StaticRange.arguments ?? {}
+export const useAppDispatch = useDispatch.withTypes<AppDispatch>();
