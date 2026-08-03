@@ -1,21 +1,46 @@
 
+import { useDispatch } from 'react-redux';
 import type { IReader } from '../../types/reader.types';
 import './addingModal.css';
-import type { SubmitEvent, MouseEvent, RefObject } from 'react';
+import { type SubmitEvent, type MouseEvent, type RefObject, type SubmitEventHandler, useRef, useState, type ChangeEventHandler } from 'react';
+import { addReader } from '../../store/reader-slice';
 
 type AddReaderModalProps = {
-  hendleClick: ()=>void;
-  handlerSubmit: (ev: SubmitEvent<HTMLFormElement>)=>void;
-  phone: string;
-  handlePhoneChange:()=>void;
-  refFullName:RefObject<HTMLInputElement> | null;
-  refEmail:RefObject<HTMLInputElement> | null;
-  reader?: IReader
+  closeHendler: ()=>void;
+//  handlerSubmit: (ev: SubmitEvent<HTMLFormElement>)=>void;
+  reader?: IReader | null
 }
-const AddReaderModal = ({hendleClick, handlerSubmit,refFullName, refEmail, phone, handlePhoneChange, reader} : AddReaderModalProps) => {
+const AddReaderModal = ({ reader= null, closeHendler} : AddReaderModalProps) => {
+  
+  const refFullName = useRef<HTMLInputElement>(null);
+  const refEmail = useRef<HTMLInputElement>(null);
+  const [phone, setPhone] = useState('');
+  
+  const dispatch = useDispatch()
+
+  const handlerSubmit: SubmitEventHandler<HTMLFormElement> = (e) =>{
+    e.preventDefault()
+    // валидация 
+    const newReader = {
+        fullName: refFullName.current?.value,
+        email: refEmail.current?.value,
+        phone: phone
+    }
+    dispatch(addReader(newReader));
+    closeHendler()
+  }
+  //format phone def
+    const handlePhoneChange: ChangeEventHandler<HTMLInputElement> = (e) =>{
+    const inputData = e.target.value.replace(/\D/g, '');
+    // валидация и преобразование 
+    // setPhone(FormPhone(inputData));
+    setPhone(inputData);
+  }
+
+
   const OverlayClickHendler = (event : MouseEvent<HTMLDivElement>) =>{
     if(event.target === event.currentTarget){
-      hendleClick()
+      closeHendler()
     }
   }
     return(
@@ -23,7 +48,7 @@ const AddReaderModal = ({hendleClick, handlerSubmit,refFullName, refEmail, phone
       <div className="modal">
         <div className="modal-header">
           <h2>Регистрация читателя</h2>
-          <button className="modal-close" onClick={hendleClick}>×</button>
+          <button className="modal-close" onClick={closeHendler}>×</button>
         </div>
         
         <form onSubmit={handlerSubmit} >
@@ -60,7 +85,7 @@ const AddReaderModal = ({hendleClick, handlerSubmit,refFullName, refEmail, phone
           </div>
           
           <div className="modal-footer">
-            <button type="button" className="btn btn-outline" onClick={hendleClick}>
+            <button type="button" className="btn btn-outline" onClick={closeHendler}>
               Отмена
             </button>
             <button type="submit" className="btn btn-primary">

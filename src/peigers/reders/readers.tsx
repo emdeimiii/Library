@@ -2,9 +2,12 @@
 import ReaderList from "../../companents/Readers/readersList";
 import './readers.css';
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import AddReaderModal from "../../companents/addModal/addReaderModal";
+
 import type { ChangeEventHandler, KeyboardEvent, SubmitEvent } from 'react';
+
+
 import { useSelector } from "react-redux";
 import { getCountReaders } from "../../store/reader-slice";
 
@@ -13,15 +16,21 @@ import { getCountReaders } from "../../store/reader-slice";
 const Readerspage = () => {
 
   const [showModal, setShowModal] = useState(false);
+
   const refFullName = useRef<HTMLInputElement>(null);
   const refEmail = useRef<HTMLInputElement>(null);
   const [phone, setPhone] = useState('');
+
+
+
+  
 
   const count = useSelector(getCountReaders);
 
   const closeHendler = () => {
     setShowModal(false);
   }
+
   const formatPhone = (raw: string): string => {
     // +7 (999) 999-99-99
     let result = '';
@@ -61,6 +70,8 @@ const Readerspage = () => {
   useEffect(() => {
     const escHendler = (event: KeyboardEvent) => {
       if (event.key === "Escape") {
+
+
         closeHendler()
       }
     }
@@ -71,6 +82,7 @@ const Readerspage = () => {
       document.removeEventListener('keydown', escHendler);
     }
   }, [showModal])
+
 
   return (
     <>
