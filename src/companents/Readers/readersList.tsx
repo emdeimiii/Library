@@ -14,7 +14,7 @@ const ReaderList = () => {
     const dispatch = useDispatch<AppDispatch>();
     const readers = useSelector(getAllReaders);
   const status = useSelector(selectReadersStatus);
-
+console.log('Текущий список книг:', readers);
     useEffect(() => {
     if (status === 'idle') {
       dispatch(getReaders()); // 👈 Вызываем thunk
