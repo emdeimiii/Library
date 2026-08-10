@@ -1,12 +1,28 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import BookItem from "./bookItem"
-import { getAllBooks } from "../../store/book-slice";
+import { getAllBooks, getBooks, selectBooksStatus } from "../../store/book-slice";
 import type { IBook } from "../../types/book.types";
+import type { AppDispatch } from "../../store/store";
+import { useEffect } from "react";
 
 const BookList=()=>{
+    const dispatch = useDispatch<AppDispatch>();
     const books = useSelector(getAllBooks);
-console.log('Текущий список книг:', books);
-    if (books.length === 0 ){
+    const status = useSelector(selectBooksStatus);
+   console.log('Текущий список книг:', books);
+   useEffect(()=>{
+    if (status === 'idle'){
+        dispatch(getBooks());
+    }
+   }, [status, dispatch]);
+   if (status === 'loading'){
+     return(
+        <div>⏳ Загрузка..</div>
+    )
+   }
+   if (status === 'failed') return <div>❌ Ошибка</div>;
+
+   if (books.length === 0 ){
         return(
         <div className="empty-state">
             <div className="empty-state-icon"></div>

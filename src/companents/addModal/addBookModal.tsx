@@ -1,8 +1,9 @@
 import { useRef, useState, type ChangeEventHandler, type MouseEvent, type SubmitEvent } from 'react';
 import './addingModal.css';
 import type { IBook } from '../../types/book.types';
-import { addBook } from '../../store/book-slice';
+import {  addBooksPost } from '../../store/book-slice';
 import { useAppDispatch } from '../../store/reader-slice';
+
 
 interface BookData {
   title: string;
@@ -63,123 +64,133 @@ const AddBookModal = ({ hendleClickBook, book = null }: AddBookrModalProps) => {
       setErrors(newErrors);
       return;
     }
-      const newBook = {
-      id: Date.now().toString(),
-      title: title,
-      author: author,
-      isbn: isbn,
-      year: year,
-      quantity: Number(quantity) 
-    }
-    dispatch(addBook(newBook));
-    setErrors({});
-    setYear('');
-       hendleClickBook(); 
+    const bookData = { id: 'string',
+    title: title,
+    author: author,
+    year: year,
+    genre: 'string',
+    isAvailable: true,
+    description: 'string'};
+  
+  setErrors({});
+  setYear('');
+  hendleClickBook();
+
+  dispatch(addBooksPost(bookData))
+      .unwrap() 
+      .then((addBooksPost) => {
+        console.log('Книга создана с ID:', addBooksPost.id);
+
+      })
+      .catch((error) => {
+        console.error('Ошибка при создании:', error);
+      });
+  };
+
+
+const handleYearChange: ChangeEventHandler<HTMLInputElement> = (e) => {
+  const inputDataBook = e.target.value.replace(/[^\d]/g, '');
+  if (inputDataBook.length <= 4) {
+    setYear(inputDataBook);
   }
 
-  const handleYearChange: ChangeEventHandler<HTMLInputElement> = (e) => {
-    const inputDataBook = e.target.value.replace(/[^\d]/g, '');
-    if (inputDataBook.length <= 4) {
-        setYear(inputDataBook);
-    }
+}
 
+const OverlayClickHendlerBook = (e: MouseEvent<HTMLDivElement>) => {
+  if (e.target === e.currentTarget) {
+    hendleClickBook()
   }
+}
+return (
+  <div className="modal-overlay" onClick={OverlayClickHendlerBook}>
+    <div className="modal">
+      <div className="modal-header">
+        <h2>Добавление книги</h2>
+        <button className="modal-close" onClick={hendleClickBook}>×</button>
+      </div>
 
-  const OverlayClickHendlerBook = (e: MouseEvent<HTMLDivElement>) => {
-    if (e.target === e.currentTarget) {
-      hendleClickBook()
-    }
-  }
-  return (
-    <div className="modal-overlay" onClick={OverlayClickHendlerBook}>
-      <div className="modal">
-        <div className="modal-header">
-          <h2>Добавление книги</h2>
-          <button className="modal-close" onClick={hendleClickBook}>×</button>
+      <form onSubmit={submitHandlerBook}>
+        <div className="form-group">
+          <label htmlFor="title">Название *</label>
+          <input
+            id="title"
+            type="text"
+            ref={refTitle}
+            defaultValue={book?.title || ''}
+          />
+          {errors.title && <span className="error-text">{errors.title}</span>}
         </div>
 
-        <form onSubmit={submitHandlerBook}>
-          <div className="form-group">
-            <label htmlFor="title">Название *</label>
-            <input
-              id="title"
-              type="text"
-              ref={refTitle}
-              defaultValue={book?.title || ''}
-            />
-            {errors.title && <span className="error-text">{errors.title}</span>}
-          </div>
+        <div className="form-group">
+          <label htmlFor="author">Автор *</label>
+          <input
+            id="author"
+            type="text"
+            ref={refAuthor}
+            defaultValue={book?.author || ''}
+          />
+          {errors.author && <span className="error-text">{errors.author}</span>}
+        </div>
 
-          <div className="form-group">
-            <label htmlFor="author">Автор *</label>
-            <input
-              id="author"
-              type="text"
-              ref={refAuthor}
-              defaultValue={book?.author || ''}
-            />
-            {errors.author && <span className="error-text">{errors.author}</span>}
-          </div>
+        <div className="form-group">
+          <label htmlFor="isbn">ISBN</label>
+          <input
+            id="isbn"
+            type="text"
+            ref={refIsbn}
+            defaultValue={book?.isbn || ''}
+          />
+          {errors.isbn && <span className="error-text">{errors.isbn}</span>}
+        </div>
 
-          <div className="form-group">
-            <label htmlFor="isbn">ISBN</label>
-            <input
-              id="isbn"
-              type="text"
-              ref={refIsbn}
-              defaultValue={book?.isbn || ''}
-            />
-            {errors.isbn && <span className="error-text">{errors.isbn}</span>}
-          </div>
+        <div className="form-group">
+          <label htmlFor="year">Год издания</label>
+          <input
+            id="year"
+            type="text"
+            value={year}
+            onChange={handleYearChange}
+            maxLength={4}
+          />
+          {errors.year && <span className="error-text">{errors.year}</span>}
+        </div>
 
-          <div className="form-group">
-            <label htmlFor="year">Год издания</label>
-            <input
-              id="year"
-              type="text"
-              value={year}
-              onChange={handleYearChange}
-              maxLength={4}
-            />
-            {errors.year && <span className="error-text">{errors.year}</span>}
-          </div>
+        <div className="form-group">
+          <label htmlFor="genre">Жанр</label>
+          <select id="genre">
+            <option value="">Выберите жанр</option>
+            <option value="fiction">Художественная литература</option>
+            <option value="science">Научная литература</option>
+            <option value="educational">Учебная литература</option>
+            <option value="children">Детская литература</option>
+            <option value="other">Другое</option>
+          </select>
+          <span className="error-text">Текст ошибки</span>
+        </div>
 
-          <div className="form-group">
-            <label htmlFor="genre">Жанр</label>
-            <select id="genre">
-              <option value="">Выберите жанр</option>
-              <option value="fiction">Художественная литература</option>
-              <option value="science">Научная литература</option>
-              <option value="educational">Учебная литература</option>
-              <option value="children">Детская литература</option>
-              <option value="other">Другое</option>
-            </select>
-            <span className="error-text">Текст ошибки</span>
-          </div>
+        <div className="form-group">
+          <label htmlFor="quantity">Количество экземпляров *</label>
+          <input
+            id="quantity"
+            type="number"
+            min="1"
+            ref={refQuantity}
+          />
+          {errors.quantity && <span className="error-text">{errors.quantity}</span>}
+        </div>
 
-          <div className="form-group">
-            <label htmlFor="quantity">Количество экземпляров *</label>
-            <input
-              id="quantity"
-              type="number"
-              min="1"
-              ref={refQuantity}
-            />
-            {errors.quantity && <span className="error-text">{errors.quantity}</span>}
-          </div>
-
-          <div className="modal-footer">
-            <button type="button" className="btn btn-outline" onClick={hendleClickBook}>
-              Отмена
-            </button>
-            <button type="submit" className="btn btn-primary">
-              Добавить
-            </button>
-          </div>
-        </form>
-      </div>
+        <div className="modal-footer">
+          <button type="button" className="btn btn-outline" onClick={hendleClickBook}>
+            Отмена
+          </button>
+          <button type="submit" className="btn btn-primary">
+            Добавить
+          </button>
+        </div>
+      </form>
     </div>
-  )
+  </div>
+)
 }
 
 
