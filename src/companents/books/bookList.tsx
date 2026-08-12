@@ -1,23 +1,43 @@
-import type { IBook } from "../../types/book.types"
+import { useDispatch, useSelector } from "react-redux";
 import BookItem from "./bookItem"
-interface BookListPops{
-    books: IBook[];
-}
+import { getAllBooks, getBooks, selectBooksStatus } from "../../store/book-slice";
+import type { IBook } from "../../types/book.types";
+import type { AppDispatch } from "../../store/store";
+import { useEffect } from "react";
 
-const BookList=({books}: BookListPops)=>{
-    if (books.length === 0 ){
+const BookList=()=>{
+    const dispatch = useDispatch<AppDispatch>();
+    const books = useSelector(getAllBooks);
+    const status = useSelector(selectBooksStatus);
+   console.log('Текущий список книг:', books);
+   useEffect(()=>{
+    if (status === 'idle'){
+        dispatch(getBooks());
+    }
+   }, [status, dispatch]);
+   if (status === 'loading'){
+     return(
+        <div>⏳ Загрузка..</div>
+    )
+   }
+   if (status === 'failed') return <div>❌ Ошибка</div>;
+
+   if (books.length === 0 ){
         return(
         <div className="empty-state">
             <div className="empty-state-icon"></div>
             <h3>Книги не найдены</h3>
-            <p>Попробуйте изменить параментры поиска</p>
+            <p>Попробуйте изменить параметры поиска</p>
         </div>)
     }
     return(
+        
         <div className="card-grid">
-            {books.map((book) => {
-                return <BookItem book={book} key={book.id} />;
+            {books.map((book: IBook) => {
+                
+                return <BookItem key={book.id} book={book} />;
             })}
+            
         </div>
         )
 }

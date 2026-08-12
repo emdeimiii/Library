@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { ReaderSlice } from "./reader-slice";
+import { BookSlice } from "./book-slice";
 
 export const store = configureStore({
     reducer:{
         readers: ReaderSlice.reducer,
-        //book: 
+        books: BookSlice.reducer 
     }
 });
-export type AppDispatch = typeof store.dispatch
