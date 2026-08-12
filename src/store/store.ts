@@ -8,5 +8,3 @@ export const store = configureStore({
         books: BookSlice.reducer 
     }
 });
-export type AppDispatch = typeof store.dispatch
-export type RootState = ReturnType<typeof store.getState>;

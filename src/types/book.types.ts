@@ -16,4 +16,12 @@ export interface IBook {
     availableCopies?: number
     tags?: string[]
 }
-
+export interface IBookForm{
+     id: string;
+    title: string;
+    author: string;
+    year: string;
+    genre: string;
+    isAvailable: boolean;
+    description: string;
+}
