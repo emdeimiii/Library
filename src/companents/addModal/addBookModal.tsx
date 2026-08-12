@@ -25,6 +25,8 @@ const AddBookModal = ({ hendleClickBook, book = null }: AddBookrModalProps) => {
   const refAuthor = useRef<HTMLInputElement>(null)
   const refIsbn = useRef<HTMLInputElement>(null)
   const refQuantity = useRef<HTMLInputElement>(null)
+  const refGenre = useRef<HTMLInputElement>(null)
+  const refDescription = useRef<HTMLInputElement>(null) 
 
   const [errors, setErrors] = useState<Partial<BookData>>({});
   const [year, setYear] = useState('');
@@ -36,7 +38,8 @@ const AddBookModal = ({ hendleClickBook, book = null }: AddBookrModalProps) => {
     const title = refTitle.current?.value.trim() || '';
     const author = refAuthor.current?.value.trim() || '';
     const quantity = refQuantity.current?.value.trim() || '';
-    const isbn = refIsbn.current?.value.trim() || '';
+    const genre = refGenre.current?.value.trim() || '';
+     const descriptionenre = refDescription.current?.value.trim() || ''
 
     const newErrors: Partial<BookData> = {};
     let isValid = true;
@@ -68,9 +71,9 @@ const AddBookModal = ({ hendleClickBook, book = null }: AddBookrModalProps) => {
     title: title,
     author: author,
     year: year,
-    genre: 'string',
+    genre: genre,
     isAvailable: true,
-    description: 'string'};
+    description: descriptionenre };
   
   setErrors({});
   setYear('');
